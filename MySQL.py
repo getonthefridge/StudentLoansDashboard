@@ -64,6 +64,7 @@ def addRow(conn, table, date, details, amount):
     conn.commit()
 
 
+
 def deleteRow(conn, table, id):
     db = conn.cursor()
     query = f"""DELETE FROM {table} WHERE ID = {id}"""

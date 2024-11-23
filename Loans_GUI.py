@@ -45,6 +45,7 @@ class MainGUI:
         self.input_details = None
         self.btnFrame = None
 
+
         # Temp
         self.selectedTable = None
         self.selectedID = None
