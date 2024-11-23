@@ -45,7 +45,6 @@ class MainGUI:
         self.input_details = None
         self.btnFrame = None
 
-
         # Temp
         self.selectedTable = None
         self.selectedID = None
@@ -60,7 +59,6 @@ class MainGUI:
         env['amount'] = str(self.selectedAmount)
 
         # Display table windows
-        # TODO DISPLAY REMAINING $
         tk.Label()
         self.incomeTable()
         # self.summaryPanel()
@@ -81,7 +79,7 @@ class MainGUI:
         tk.Label(self.content_frame, text=f'                         % {percentage}').grid(row=2, column=2)
 
     def incomeTable(self):
-        tk.Label(self.content_frame, text=f'\nIncome: ${incomeTotal(connection()):,.2f}', font=('Inter', 16, 'bold')).grid(row=3, column=1)
+        tk.Label(self.content_frame, text=f'Income:           ${incomeTotal(connection()):,.2f}', font=('Inter', 16, 'bold')).grid(row=3, column=1)
 
         self.income_table = ttk.Treeview(self.content_frame, show='headings', columns=('ID', 'Date', 'Details', 'Amount'), height=5)
         self.income_table.heading('Date', text='Date')
@@ -109,7 +107,8 @@ class MainGUI:
         tk.Button(self.btnFrame, text="Delete Row", command=lambda: self.deletePopup('Income')).pack(side=tk.LEFT, padx=5, pady=5)
 
     def expensesTable(self):
-        tk.Label(self.content_frame, text='Expenses', font=('Inter', 16, 'bold')).grid(row=6, column=1)
+        # tk.Label(self.content_frame, text=f'Expenses:       ${expenseTotal(connection()):,.2f}', font=('Inter', 16, 'bold')).grid(row=6, column=1)
+        tk.Label(self.content_frame, text=f'Expenses:         ${expenseTotal(connection()):,.2f}', font=('Inter', 16, 'bold')).grid(row=6, column=1)
 
         # Define the table
         self.expense_table = ttk.Treeview(self.content_frame, show='headings', columns=('ID', 'Date', 'Details', 'Amount'))

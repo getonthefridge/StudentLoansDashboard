@@ -12,12 +12,6 @@ def connection():
             passwd=env['DB_PASS'],
             database=env['DATABASE']
         )
-        """
-        DB_HOST=localhost;
-        DB_PASS=12345678;
-        DB_USER=root;
-        DATABASE=StudentLoans
-        """
 
         return db
     except mysql.connector.Error as err:
@@ -62,7 +56,6 @@ def addRow(conn, table, date, details, amount):
     values = (date, details, amount)
     db.execute(query, values)
     conn.commit()
-
 
 
 def deleteRow(conn, table, id):
